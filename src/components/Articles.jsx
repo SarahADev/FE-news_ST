@@ -1,14 +1,23 @@
 import { fetchArticles, fetchTopics } from "../api";
 import ArticleCard from "./ArticleCard";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Articles = () => {
+  let navigate = useNavigate();
+  const [loading, setLoading] = useState(true);
   const [articles, setArticles] = useState([]);
   const [topics, setTopics] = useState([]);
   const [selectTopic, setSelectTopic] = useState("All");
 
   const handleTopicSelect = (e) => {
-    setSelectTopic(e.target.value);
+    let topicSlug = e.target.value;
+    setSelectTopic(topicSlug);
+    if (topicSlug === "All") {
+      navigate(`/articles`);
+    } else {
+      navigate(`/articles/${topicSlug}`);
+    }
   };
 
   useEffect(() => {
@@ -18,12 +27,15 @@ const Articles = () => {
   }, []);
 
   useEffect(() => {
+    setLoading(true);
     fetchArticles(selectTopic).then(({ articles }) => {
+      setLoading(false);
       setArticles(articles);
     });
   }, [selectTopic]);
   return (
     <section className="article-body">
+      {loading ? <h2> Loading...</h2> : null}
       <section className="article-queries">
         <label className="article-query-topic" key="topicLabel">
           Select a Topic
@@ -41,30 +53,30 @@ const Articles = () => {
           </select>
         </label>
       </section>
-        {articles.map(
-          ({
-            article_id,
-            title,
-            author,
-            topic,
-            votes,
-            comment_count,
-            created_at,
-          }) => {
-            return (
-                <ArticleCard
-                  key={article_id}
-                  id={article_id}
-                  title={title}
-                  author={author}
-                  topic={topic}
-                  votes={votes}
-                  comment_count={comment_count}
-                  date={created_at}
-                />
-            );
-          }
-        )}
+      {articles.map(
+        ({
+          article_id,
+          title,
+          author,
+          topic,
+          votes,
+          comment_count,
+          created_at,
+        }) => {
+          return (
+            <ArticleCard
+              key={article_id}
+              id={article_id}
+              title={title}
+              author={author}
+              topic={topic}
+              votes={votes}
+              comment_count={comment_count}
+              date={created_at}
+            />
+          );
+        }
+      )}
     </section>
   );
 };
