@@ -34,3 +34,15 @@ export const fetchTopics = () => {
       console.log(err);
     });
 };
+
+
+export const fetchSingleArticle = (article_id) => {
+    return axios
+      .get(`https://news-api-08-22.herokuapp.com/api/articles/${article_id}`)
+      .then((res) => {
+          return res.data
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
