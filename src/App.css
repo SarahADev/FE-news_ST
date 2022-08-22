@@ -59,3 +59,19 @@
   font-weight: 500;
   
 }
+
+.single-article {
+  background-color: lightblue;
+  margin: 20px;
+  padding: 20px;
+}
+
+.single-article p{
+  background-color: white;
+  padding: 10px;
+}
+
+.single-article span{
+  color:purple
+}
+
