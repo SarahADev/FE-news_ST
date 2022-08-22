@@ -13,7 +13,7 @@ const Articles = () => {
     }, [])
     return (
         <section className="article-list">
-            {articles.map(({article_id, title, author, topic, votes, comment_count})=> {
+            {articles.map(({article_id, title, author, topic, votes, comment_count, created_at})=> {
                 return (
                     <section className="article-list--article">
                         <ArticleCard
@@ -22,7 +22,8 @@ const Articles = () => {
                         author={author}
                         topic={topic}
                         votes={votes}
-                        comment_count={comment_count}/>
+                        comment_count={comment_count}
+                        date={created_at}/>
                     </section>
                 )
             })}
