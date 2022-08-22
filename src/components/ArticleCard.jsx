@@ -12,7 +12,6 @@ const ArticleCard = ({
   const formatDate = date.slice(0, -14);
   let navigate = useNavigate();
   const handleView = (article_id) => {
-    console.log(article_id, "article_id in handle");
     navigate(`/article/${article_id}`);
   };
   return (
