@@ -3,7 +3,7 @@ import ArticleCard from "./ArticleCard";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const Articles = () => {
+const Articles = (article_id) => {
   let navigate = useNavigate();
   const [loading, setLoading] = useState(true);
   const [articles, setArticles] = useState([]);
@@ -64,16 +64,16 @@ const Articles = () => {
           created_at,
         }) => {
           return (
-            <ArticleCard
-              key={article_id}
-              id={article_id}
-              title={title}
-              author={author}
-              topic={topic}
-              votes={votes}
-              comment_count={comment_count}
-              date={created_at}
-            />
+              <ArticleCard
+                key={article_id}
+                article_id={article_id}
+                title={title}
+                author={author}
+                topic={topic}
+                votes={votes}
+                comment_count={comment_count}
+                date={created_at}
+              />
           );
         }
       )}
