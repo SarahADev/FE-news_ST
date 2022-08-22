@@ -69,6 +69,7 @@
 .single-article p{
   background-color: white;
   padding: 10px;
+  text-align: left;
 }
 
 .single-article span{
