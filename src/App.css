@@ -52,3 +52,10 @@
   padding: 5px;
   color: blue;  
 }
+
+.dropdown{
+  margin: 10px;
+  border: none;
+  font-weight: 500;
+  
+}
