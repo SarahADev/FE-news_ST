@@ -1,34 +1,72 @@
-import { fetchArticles } from "../api";
+import { fetchArticles, fetchTopics } from "../api";
 import ArticleCard from "./ArticleCard";
 import { useEffect, useState } from "react";
 
-
 const Articles = () => {
-    const [articles, setArticles] = useState([])
+  const [articles, setArticles] = useState([]);
+  const [topics, setTopics] = useState([]);
+  const [selectTopic, setSelectTopic] = useState("All");
 
-    useEffect(() => {
-        fetchArticles().then(({articles}) => {
-            setArticles(articles)
-        })
-    }, [])
-    return (
-        <section className="article-list">
-            {articles.map(({article_id, title, author, topic, votes, comment_count, created_at})=> {
-                return (
-                    <section className="article-list--article">
-                        <ArticleCard
-                        key={article_id}
-                        title={title}
-                        author={author}
-                        topic={topic}
-                        votes={votes}
-                        comment_count={comment_count}
-                        date={created_at}/>
-                    </section>
-                )
+  const handleTopicSelect = (e) => {
+    setSelectTopic(e.target.value);
+  };
+
+  useEffect(() => {
+    fetchTopics().then(({ topics }) => {
+      setTopics(topics);
+    });
+  }, []);
+
+  useEffect(() => {
+    fetchArticles(selectTopic).then(({ articles }) => {
+      setArticles(articles);
+    });
+  }, [selectTopic]);
+  return (
+    <section className="article-body">
+      <section className="article-queries">
+        <label className="article-query-topic" key="topicLabel">
+          Select a Topic
+          <select className="dropdown" onChange={handleTopicSelect}>
+            <option value="All" key="All">
+              All
+            </option>
+            {topics.map(({ slug }, index) => {
+              return (
+                <option value={slug} key={index}>
+                  {slug}
+                </option>
+              );
             })}
-        </section>
-    )
-}
+          </select>
+        </label>
+      </section>
+        {articles.map(
+          ({
+            article_id,
+            title,
+            author,
+            topic,
+            votes,
+            comment_count,
+            created_at,
+          }) => {
+            return (
+                <ArticleCard
+                  key={article_id}
+                  id={article_id}
+                  title={title}
+                  author={author}
+                  topic={topic}
+                  votes={votes}
+                  comment_count={comment_count}
+                  date={created_at}
+                />
+            );
+          }
+        )}
+    </section>
+  );
+};
 
 export default Articles;
