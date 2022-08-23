@@ -33,9 +33,6 @@ export const fetchSingleArticle = (article_id) => {
     .then((res) => {
       return res.data;
     })
-    .catch((err) => {
-      console.log(err);
-    });
 };
 
 
@@ -45,5 +42,13 @@ export const updateArticleVotes = (article_id) => {
       inc_votes : 1
     })
     .then((res) => {
+    })
+};
+
+export const fetchArticleComments = (article_id) => {
+  return axios
+    .get(`https://news-api-08-22.herokuapp.com/api/articles/${article_id}/comments`)
+    .then((res) => {
+      return res.data;
     })
 };
