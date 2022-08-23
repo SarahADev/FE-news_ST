@@ -16,7 +16,6 @@ function App() {
         <Nav />
         <Routes>
           <Route path="/" element={<Home />}/>
-          <Route path="/articles" element={<Articles />} />
           <Route path="/users" element={<UserList />} />
           <Route path="/articles/topic/:topic_slug" element={<Articles />} />
           <Route path="/article/:article_id" element={<SingleArticle />} />
