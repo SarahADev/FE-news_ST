@@ -1,8 +1,11 @@
 import { useParams } from "react-router-dom";
-import { useState, useEffect } from "react";
-import { fetchArticleComments, fetchSingleArticle } from "../api";
+import { useState, useEffect} from "react";
+import { fetchArticleComments, fetchSingleArticle} from "../api";
 import ArticleVote from "./ArticleVote";
 import ArticleComments from "./ArticleComments";
+import PostComment from "./PostComment";
+
+
 
 const SingleArticle = () => {
   const { article_id } = useParams();
@@ -43,6 +46,7 @@ const SingleArticle = () => {
       <ArticleVote article_id={article_id} votes={singleArticle.votes} />
       <section className="comment-list">
         <h3>Comments:</h3>
+          <PostComment article_id={article_id} setArticleCommentList={setArticleCommentList}/>
         {articleCommentList.map(
           ({ comment_id, votes, created_at, author, body }) => {
             return (
