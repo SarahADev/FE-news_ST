@@ -47,8 +47,18 @@ export const updateArticleVotes = (article_id) => {
 
 export const fetchArticleComments = (article_id) => {
   return axios
-    .get(`https://news-api-08-22.herokuapp.com/api/articles/${article_id}/comments`)
+    .get(`https://news-api-08-22.herokuapp.com/api/articles/${article_id}/comments?limit=100`)
     .then((res) => {
       return res.data;
+    })
+};
+
+export const postArticleComment = (article_id, user, body) => {
+  return axios
+    .post(`https://news-api-08-22.herokuapp.com/api/articles/${article_id}/comments`, {
+      username: user, body: body
+    })
+    .then((res) => {
+      return res.data
     })
 };
