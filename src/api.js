@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const fetchArticles = (topic) => {
-  if (topic === "All") {
+  if (topic === "all") {
     return fetch("https://news-api-08-22.herokuapp.com/api/articles").then(
       (res) => {
         return res.json();
@@ -54,7 +54,4 @@ export const updateArticleVotes = (article_id) => {
     })
     .then((res) => {
     })
-    .catch((err) => {
-      console.log(err);
-    });
 };
