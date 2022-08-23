@@ -8,15 +8,25 @@ const SingleArticle = () => {
   const { article_id } = useParams();
   const [singleArticle, setSingleArticle] = useState();
   const [articleCommentList, setArticleCommentList] = useState([]);
+  const [err, setErr] = useState(null)
 
   useEffect(() => {
+    setErr(null)
     fetchSingleArticle(article_id).then(({ article }) => {
       setSingleArticle(article);
-    });
+    })
+    .catch(() =>{
+      setErr('Something went wrong...')
+    })
     fetchArticleComments(article_id).then(({ comments }) => {
       setArticleCommentList(comments);
-    });
+    })
+    .catch(() => {
+      setErr('Something went wrong...')
+    })
   }, [article_id]);
+
+  if(err) return <span> {err} </span>
 
   if (!singleArticle) {
     return <section className="single-article">Loading..</section>;
