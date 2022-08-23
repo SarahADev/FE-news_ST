@@ -11,6 +11,7 @@ const ArticleCard = ({
 }) => {
   const formatDate = date.slice(0, -14);
   let navigate = useNavigate();
+  
   const handleView = (article_id) => {
     navigate(`/article/${article_id}`);
   };
