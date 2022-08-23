@@ -33,9 +33,6 @@ export const fetchSingleArticle = (article_id) => {
     .then((res) => {
       return res.data;
     })
-    .catch((err) => {
-      console.log(err);
-    });
 };
 
 
@@ -54,7 +51,4 @@ export const fetchArticleComments = (article_id) => {
     .then((res) => {
       return res.data;
     })
-    .catch((err) => {
-      console.log(err);
-    });
 };
