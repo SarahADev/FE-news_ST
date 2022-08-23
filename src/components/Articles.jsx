@@ -38,7 +38,7 @@ const Articles = () => {
       <section className="article-queries">
         <label className="article-query-topic" key="topicLabel">
           Select a Topic
-          <select className="dropdown" onChange={handleTopicSelect}>
+          <select className="dropdown" onChange={handleTopicSelect} value={selectTopic}>
             <option value="all" key="All">
               All
             </option>
