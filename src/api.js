@@ -53,7 +53,6 @@ export const updateArticleVotes = (article_id) => {
       inc_votes : 1
     })
     .then((res) => {
-      console.log(res, 'res in patch')
     })
     .catch((err) => {
       console.log(err);

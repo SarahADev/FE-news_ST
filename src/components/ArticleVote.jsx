@@ -2,7 +2,6 @@ import { useState } from "react";
 import { updateArticleVotes } from "../api";
 
 const ArticleVote = ({article_id, votes}) => {
-    console.log(article_id, votes, 'article id in Articlevote')
     const [optimisticArticleVote, setOptimisticArticleVote] = useState(0)
 
     const incrementArticleVote = () => {
