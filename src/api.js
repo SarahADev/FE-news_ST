@@ -2,27 +2,19 @@ import axios from "axios";
 
 export const fetchArticles = (topic) => {
   if (topic === "all") {
-    return fetch("https://news-api-08-22.herokuapp.com/api/articles").then(
+    return axios.get("https://news-api-08-22.herokuapp.com/api/articles").then(
       (res) => {
-        return res.json();
+        return res.data
       }
     );
   } else {
-    return fetch(
+    return axios.get(
       `https://news-api-08-22.herokuapp.com/api/articles?topic=${topic}`
     ).then((res) => {
-      return res.json();
+      return res.data
     });
   }
 };
-
-// export const fetchTopics = () => {
-//   return fetch("https://news-api-08-22.herokuapp.com/api/topics").then(
-//     (res) => {
-//       return res.json();
-//     }
-//   );
-// };
 
 export const fetchTopics = () => {
   return axios
