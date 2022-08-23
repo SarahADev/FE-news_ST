@@ -16,7 +16,7 @@ const Articles = (article_id) => {
     if (topicSlug === "All") {
       navigate(`/articles`);
     } else {
-      navigate(`/articles/${topicSlug}`);
+      navigate(`/articles/topic/${topicSlug}`);
     }
   };
 
