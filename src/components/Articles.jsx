@@ -91,7 +91,6 @@ const Articles = () => {
             <option value="comment_count" key="comment_count">
               Comments
             </option>
-            {/* title, date(default) created_at, author, topic, votes, comment_count */}
           </select>
         </label>
         <button className="article-query-order" onClick={handleOrderSelect}>{selectOrder}</button>
