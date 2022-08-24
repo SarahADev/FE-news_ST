@@ -1,15 +1,15 @@
 import axios from "axios";
 
-export const fetchArticles = (topic) => {
+export const fetchArticles = (topic, sort, order) => {
   if (topic === "all") {
-    return axios.get("https://news-api-08-22.herokuapp.com/api/articles").then(
+    return axios.get(`https://news-api-08-22.herokuapp.com/api/articles?sort_by=${sort}&&order=${order}`).then(
       (res) => {
         return res.data
       }
     );
   } else {
     return axios.get(
-      `https://news-api-08-22.herokuapp.com/api/articles?topic=${topic}`
+      `https://news-api-08-22.herokuapp.com/api/articles?topic=${topic}&&sort_by=${sort}&&order=${order}`
     ).then((res) => {
       return res.data
     });
