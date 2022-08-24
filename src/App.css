@@ -32,8 +32,6 @@
   }
 }
 
-.article-title{
-}
 .article-card{
   border: solid 3px black;
   padding: 10px;
@@ -122,4 +120,29 @@
 .comment-card span{
   color:black;
   font-size: small;
+}
+
+.single-article form {
+  margin: 10px;
+  border: 1px solid rgb(199, 192, 192);
+}
+
+.single-article form span{
+  margin: 5px;
+  font-size: medium;
+  color: blue;
+  font-weight: 700;
+}
+
+.single-article form textarea{
+  margin: 5px;
+  border: solid 1px blue;
+  height: 100px;
+  width: 98%;
+  background-color: rgb(239, 255, 255);
+}
+
+section .success-post-count{
+  margin: 10px;
+  color: blue;
 }
