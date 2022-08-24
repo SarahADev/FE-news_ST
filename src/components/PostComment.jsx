@@ -3,7 +3,7 @@ import { UserContext } from "../contexts/User";
 import { useContext, useState } from "react";
 import { postArticleComment } from "../api";
 
-const PostComment = ({article_id, setArticleCommentList}) => {
+const PostComment = ({ article_id, setArticleCommentList }) => {
   const { user, setUser } = useContext(UserContext);
   const [newComment, setNewComment] = useState("");
   const [err, setErr] = useState(null);
@@ -15,30 +15,34 @@ const PostComment = ({article_id, setArticleCommentList}) => {
     setErr(null);
     setPostSuccess(null);
     e.preventDefault();
-    postArticleComment(article_id, user, newComment)
-      .then(({ addedComment }) => {
-        setArticleCommentList((currArticleCommentList) => {
-            return [
-                addedComment,
-                ...currArticleCommentList
-            ]
+    if (newComment !== "") {
+      postArticleComment(article_id, user, newComment)
+        .then(({ addedComment }) => {
+          setArticleCommentList((currArticleCommentList) => {
+            return [addedComment, ...currArticleCommentList];
+          });
+          setPostedComment((currPostedComment) => {
+            return currPostedComment + 1;
+          });
+          setPostSuccess(addedComment.body);
         })
-        setPostedComment((currPostedComment) => {
-            return currPostedComment + 1
-        })
-        setPostSuccess(addedComment.body);
-      })
-      .catch(() => {
-        setErr(
-          "Something went wrong... Please refresh the page and try again."
-        );
-      });
+        .catch(() => {
+          setErr(
+            "Something went wrong... Please refresh the page and try again."
+          );
+        });
+    }
   };
 
   if (err) return <span>{err}</span>;
   return (
     <section>
-      {postSuccess ? <span className="success-post-count"> Successfully posted {postedComment} comments</span> : null}
+      {postSuccess ? (
+        <span className="success-post-count">
+          {" "}
+          Successfully posted {postedComment} comments
+        </span>
+      ) : null}
       <form onSubmit={handleSubmit}>
         <span>{user}</span> <br />
         <textarea
