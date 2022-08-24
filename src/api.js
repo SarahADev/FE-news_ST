@@ -62,3 +62,11 @@ export const postArticleComment = (article_id, user, body) => {
       return res.data
     })
 };
+
+export const deleteArticleComment = (comment_id) => {
+  return axios
+  .delete(`https://news-api-08-22.herokuapp.com/api/comments/${comment_id}`)
+  .then((res) => {
+    return res.status
+  })
+}
