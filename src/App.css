@@ -147,3 +147,16 @@ section .success-post-count{
   margin: 10px;
   color: blue;
 }
+
+.delete-comment{
+  border: none;
+  border-bottom: solid 1px grey;
+  cursor: pointer;
+  background-color: white;
+  margin: 0px 10px 10px 10px;
+  padding: 5px;
+}
+
+.delete-comment:hover{
+  background-color: lightblue;
+}
