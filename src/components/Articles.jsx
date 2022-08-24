@@ -11,7 +11,21 @@ const Articles = () => {
   const [articles, setArticles] = useState([]);
   const [topics, setTopics] = useState([]);
   const [selectTopic, setSelectTopic] = useState(topic_slug);
+  const [selectSortBy, setSelectSortBy] = useState('created_at')
+  const [selectOrder, setSelectOrder] = useState('DESC')
+  const [err, setErr] = useState(null)
 
+  const handleSortSelect = (e) => {
+    setSelectSortBy(e.target.value)
+  }
+
+  const handleOrderSelect = () => {
+    if(selectOrder==='ASC'){
+      setSelectOrder('DESC')
+    } else {
+      setSelectOrder('ASC')
+    }
+  }
 
   const handleTopicSelect = (e) => {
     let topicSlug = e.target.value;
@@ -27,11 +41,16 @@ const Articles = () => {
 
   useEffect(() => {
     setLoading(true);
-    fetchArticles(selectTopic).then(({ articles }) => {
+    fetchArticles(selectTopic, selectSortBy, selectOrder).then(({ articles }) => {
       setLoading(false);
       setArticles(articles);
-    });
-  }, [selectTopic]);
+    })
+    .catch(()=>{
+      setErr('Something went wrong...')
+    })
+  }, [selectTopic, selectSortBy, selectOrder]);
+
+  if (err) return <span>{err}</span>
   return (
     <section className="article-body">
       {loading ? <h2> Loading...</h2> : null}
@@ -50,7 +69,32 @@ const Articles = () => {
               );
             })}
           </select>
+        </label> <br/>
+        <label className="aricle-query-sortby">
+          Sort by:
+          <select className="dropdown" onChange={handleSortSelect}>
+          <option value="created_at" key="date">
+              Date
+            </option>
+          <option value="title" key="title">
+              Title
+            </option>
+            <option value="author" key="author">
+              Author
+            </option>
+            <option value="topic" key="topic">
+              Topic
+            </option>
+            <option value="votes" key="votes">
+              Votes
+            </option>
+            <option value="comment_count" key="comment_count">
+              Comments
+            </option>
+            {/* title, date(default) created_at, author, topic, votes, comment_count */}
+          </select>
         </label>
+        <button className="article-query-order" onClick={handleOrderSelect}>{selectOrder}</button>
       </section>
       {articles.map(
         ({
