@@ -29,9 +29,12 @@ const Articles = () => {
 
   const handleTopicSelect = (e) => {
     let topicSlug = e.target.value;
-    setSelectTopic(topicSlug);
     navigate(`/articles/topic/${topicSlug}`);
   };
+
+  useEffect(() => {
+    setSelectTopic(topic_slug);
+  }, [topic_slug])
 
   useEffect(() => {
     fetchTopics().then(({ topics }) => {
