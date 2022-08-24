@@ -19,9 +19,9 @@ const ArticleVote = ({article_id, votes}) => {
 
 
     return (
-        <span className="article-vote" onClick={() => {
+        <button className="article-vote" disabled={optimisticArticleVote===1? true : false} onClick={() => {
             incrementArticleVote()
-        }}> VOTES : {votes + optimisticArticleVote}</span>
+        }}> VOTES : {votes + optimisticArticleVote}</button>
     )
 }
 
