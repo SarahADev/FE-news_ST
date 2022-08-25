@@ -28,22 +28,25 @@ const SingleArticle = () => {
         setArticleCommentList(comments);
       })
       .catch(() => {
-        setErr("Something went wrong...");
+        setErr("Oops! Something went wrong...");
       });
   }, [article_id]);
 
-  if (err) return <span> {err} </span>;
+  if (err) return <section className="article-error"> <p>{err}</p> <img src="https://cdn-icons-png.flaticon.com/512/3036/3036041.png" alt="Error message"/> </section>;
 
   if (!singleArticle) {
-    return <section className="single-article">Loading..</section>;
+    return (
+      <section className="loading">
+        <h2>Loading</h2>
+        <div className="loader"></div>
+      </section>
+    );
   }
   return (
     <section className="single-article">
       <p className="topic">{singleArticle.topic}</p>
       <h2>{singleArticle.title}</h2>
-      <p className="author">
-        Author: {singleArticle.author}
-      </p>
+      <p className="author">Author: {singleArticle.author}</p>
       <p className="body">{singleArticle.body}</p>
       <p className="date">{singleArticle.created_at.slice(0, -14)}</p>
       <ArticleVote article_id={article_id} votes={singleArticle.votes} />
@@ -63,8 +66,12 @@ const SingleArticle = () => {
                   author={author}
                   body={body}
                 />
-                {author === user ? <DeleteComment setArticleCommentList={setArticleCommentList} comment_id={comment_id}/> : null}
-                
+                {author === user ? (
+                  <DeleteComment
+                    setArticleCommentList={setArticleCommentList}
+                    comment_id={comment_id}
+                  />
+                ) : null}
               </section>
             );
           }
