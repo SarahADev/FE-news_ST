@@ -50,7 +50,7 @@ const PostComment = ({ article_id, setArticleCommentList }) => {
           onChange={(e) => setNewComment(e.target.value)}
           required
         />
-        <input type="submit" className="post-comment"/>
+        <button type="submit" className="post-comment">Post Comment</button>
       </form>
     </section>
   );
