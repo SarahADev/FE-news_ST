@@ -3,6 +3,7 @@ import { updateArticleVotes } from "../api";
 
 const ArticleVote = ({ article_id, votes }) => {
   const [optimisticArticleVote, setOptimisticArticleVote] = useState(0);
+  const [err, setErr] = useState(null)
 
   const incrementArticleVote = () => {
     setOptimisticArticleVote((currArticleVote) => {
@@ -10,12 +11,13 @@ const ArticleVote = ({ article_id, votes }) => {
     });
     updateArticleVotes(article_id).catch(() => {
       setOptimisticArticleVote((currArticleVote) => {
-        alert("Vote request failed, please try again.");
+        setErr("Something went wrong... Please refresh the page and try again.")
         return currArticleVote - 1;
       });
     });
   };
 
+  if (err) return <span className="vote-error">{err}</span>;
   return (
     <section className="article-votes">
       <button

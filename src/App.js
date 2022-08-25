@@ -9,6 +9,7 @@ import UserList from "./components/UserList";
 import SingleArticle from "./components/SingleArticle";
 import { useState } from "react";
 import { UserContext } from "./contexts/User";
+import BadRoute from "./components/BadRoute";
 
 function App() {
   const [user, setUser] = useState("jessjelly");
@@ -23,6 +24,7 @@ function App() {
             <Route path="/users" element={<UserList />} />
             <Route path="/articles/topic/:topic_slug" element={<Articles />} />
             <Route path="/article/:article_id" element={<SingleArticle />} />
+            <Route path="/*" element={<BadRoute />}/>
           </Routes>
         </div>
       </UserContext.Provider>
