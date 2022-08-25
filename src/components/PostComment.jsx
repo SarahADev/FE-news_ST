@@ -3,7 +3,7 @@ import { UserContext } from "../contexts/User";
 import { useContext, useState } from "react";
 import { postArticleComment } from "../api";
 
-const PostComment = ({article_id, setArticleCommentList}) => {
+const PostComment = ({ article_id, setArticleCommentList }) => {
   const { user, setUser } = useContext(UserContext);
   const [newComment, setNewComment] = useState("");
   const [err, setErr] = useState(null);
@@ -18,14 +18,11 @@ const PostComment = ({article_id, setArticleCommentList}) => {
     postArticleComment(article_id, user, newComment)
       .then(({ addedComment }) => {
         setArticleCommentList((currArticleCommentList) => {
-            return [
-                addedComment,
-                ...currArticleCommentList
-            ]
-        })
+          return [addedComment, ...currArticleCommentList];
+        });
         setPostedComment((currPostedComment) => {
-            return currPostedComment + 1
-        })
+          return currPostedComment + 1;
+        });
         setPostSuccess(addedComment.body);
       })
       .catch(() => {
@@ -38,7 +35,12 @@ const PostComment = ({article_id, setArticleCommentList}) => {
   if (err) return <span>{err}</span>;
   return (
     <section>
-      {postSuccess ? <span className="success-post-count"> Successfully posted {postedComment} comments</span> : null}
+      {postSuccess ? (
+        <span className="success-post-count">
+          {" "}
+          Successfully posted {postedComment} comments
+        </span>
+      ) : null}
       <form onSubmit={handleSubmit}>
         <span>{user}</span> <br />
         <textarea
@@ -46,6 +48,7 @@ const PostComment = ({article_id, setArticleCommentList}) => {
           placeholder="Add a comment..."
           value={newComment}
           onChange={(e) => setNewComment(e.target.value)}
+          required
         />
         <input type="submit" />
       </form>
