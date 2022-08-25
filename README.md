@@ -1,70 +1,58 @@
-# Getting Started with Create React App
+# News app
+The front-end portion of a News app, created with React. 
+Browse through articles, sort and filter the list, view, vote and comment on any article!
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**LIVE SITE:** [LINK TO SITE]
 
-## Available Scripts
+News app is split into 2 separate deployables, a web client and a backend server. 
+Check out the backend here: https://github.com/SarahADev/News-API
 
-In the project directory, you can run:
+![alt tag](./Images/readme_img.png)
+<img src="./Images/readme_img.png" alt="Image of news web client" width="200"/>
 
-### `npm start`
+## Run locally
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+1. Install Node/npm. Make sure you have Node.js v18.4.0 or newer installed.
+2. Clone and install dependencies. Run the following commands:
+```
+git clone https://github.com/SarahADev/FE-news_ST.git
+cd nc-news
+npm install
+```
+3. Start the app:
+```
+npm start
+```
+## Basic Usage:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Use the navigation bar to render different 'pages' of the site. Articles can be sorted, ascending or descending, by properties and filtered by topic. The URL will update with any topic selected. 
+View any single article, vote on, comment on or delete posts made by you.
 
-### `npm test`
+## How It's Made:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+**Tech used:** React, CSS
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+An initial wireframe and component tree was planned. This was so I could keep track of both integration of api functionality into the client, and the structure of this repo.
+A 'work in progress' component tree was also continually updated so I could see how current work was structured and to compare with the plan.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+![alt tag](./Images/wireframe.png)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+React Hooks:
+useContext was used for the logged in user. useState and useEffect were used to store and render information retrieved from the server with axios.
 
-### `npm run eject`
+Routes for navigation:
+Whilst this app is a single-page application, routes are valuable to allow users to 
+individually address (share) certain parts of the site. Routes also allow browser history navigation.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Optimisations
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Optimistic rendering and conditional rendering is used in this project for users to receive (render) immediate UI feedback when making calls to the api. For instance, when making a GET request, a loading message will conditionally render until those articles are fetched. When a user votes on an article, the vote count will increment before an api call is made, but decrement if that call fails.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+This project was designed mobile-first to account for a responsive display.
+With more time, I would like to add a light and dark mode to the app.
 
-## Learn More
+## Lessons Learned:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Plan for the minimal viable product first, and later the 'nice to haves'. My initial wireframe was too complex in order to account for the maximum server functionality.
