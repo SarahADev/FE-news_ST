@@ -39,16 +39,16 @@ const SingleArticle = () => {
   }
   return (
     <section className="single-article">
+      <p className="topic">{singleArticle.topic}</p>
       <h2>{singleArticle.title}</h2>
-      <span>
+      <p className="author">
         Author: {singleArticle.author}
-        <br />
-        Topic: {singleArticle.topic}
-      </span>
-      <p>{singleArticle.body}</p>
+      </p>
+      <p className="body">{singleArticle.body}</p>
+      <p className="date">{singleArticle.created_at.slice(0, -14)}</p>
       <ArticleVote article_id={article_id} votes={singleArticle.votes} />
       <section className="comment-list">
-        <h3>Comments:</h3>
+        <h3 className="comments">Comments:</h3>
         <PostComment
           article_id={article_id}
           setArticleCommentList={setArticleCommentList}

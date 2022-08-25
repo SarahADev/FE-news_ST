@@ -21,8 +21,7 @@ const DeleteComment = ({ setArticleCommentList, comment_id }) => {
   if (err) return <span>{err} </span>;
   return (
     <button className="delete-comment" onClick={handleDeleteComment}>
-      {" "}
-      DELETE{" "}
+      DELETE
     </button>
   );
 };

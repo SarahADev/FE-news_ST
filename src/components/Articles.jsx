@@ -72,7 +72,7 @@ const Articles = () => {
               );
             })}
           </select>
-        </label> <br/>
+        </label>
         <label className="aricle-query-sortby">
           Sort by:
           <select className="dropdown" onChange={handleSortSelect}>

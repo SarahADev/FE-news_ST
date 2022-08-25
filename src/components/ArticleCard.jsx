@@ -18,21 +18,19 @@ const ArticleCard = ({
   return (
     <section className="article-card">
       <h2 className="article-title">{title}</h2>
-      <span className="article-author-topic">
-        BY: {author} , ON: {topic}
-      </span>{" "}
-      <br />
-      <span className="article-votes-comments">
-        Votes: {votes}, Comments: {comment_count}
-      </span>{" "}
-      <br />
-      <span className="article-date">{formatDate}</span> <br />
+      <p className="article-author-topic">
+        <span>BY:</span> {author}  <span>ON:</span> {topic}
+      </p>
+      <p className="article-votes-comments">
+        <span>Votes:</span> {votes} <span>Comments:</span> {comment_count}
+      </p>
+      <p className="article-date">{formatDate}</p>
       <button
         onClick={() => {
           handleView(article_id);
         }}
       >
-        VIEW
+        View Article
       </button>
     </section>
   );

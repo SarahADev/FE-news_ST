@@ -1,4 +1,4 @@
-.App {
+/* .App {
   text-align: center;
 }
 
@@ -159,4 +159,291 @@ section .success-post-count{
 
 .delete-comment:hover{
   background-color: lightblue;
+} */
+
+
+/* CHANGING STYLING */
+
+*{
+  box-sizing: border-box;
 }
+
+body {
+  margin: 10px 30px;
+}
+
+/* HEADER =================================*/
+
+h1 {
+  text-align: center;
+}
+
+/* NAVIGATION BAR =================================*/
+
+nav {
+  margin: auto;
+  max-width: 768px;
+  display: flex;
+  flex-direction: row;
+  border-bottom: solid 3px rgba(132,15,218,255);
+}
+
+a {
+  font-weight: 800;
+  text-decoration: none;
+  padding: 20px;
+  text-align: center;
+  color: rgba(132,15,218,255);
+  width: 33.33%;
+  font-size: large;
+  cursor: pointer;
+}
+
+a:hover {
+  font-weight: 900;
+  background-color: lavender;
+  color: black;
+}
+
+/* SINGLE ARTICLE =================================*/
+
+.topic{
+  border-radius: 5px;
+  color: white;
+  font-weight: 700;
+  display: inline-block;
+  padding: 10px;
+  margin: 20px 0px 10px 0px;
+  background-color: rgba(132,15,218,255);
+}
+
+h2{
+  padding: 10px 0px;
+}
+
+.author{
+  font-size: large;
+  padding: 10px 0px;
+  font-weight: 600;
+}
+
+section {
+  margin: auto;
+  max-width: 768px;
+}
+
+.body{
+  font-size: large;
+}
+
+.date{
+  padding: 10px 0px;
+  font-weight: 700;
+}
+
+.article-votes{
+  border-radius: 5px;
+  background-color: rgb(240, 239, 239);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.article-votes button {
+  border: none;
+  border-radius: 5px;
+  color:white;
+  background-color: rgba(132,15,218,255);
+  font-size: 2rem;
+  line-height: 1rem;
+  padding: 15px;
+  cursor: pointer;
+}
+
+.article-votes button:hover {
+  background-color: rgba(168, 85, 230,255);
+
+}
+
+
+.article-votes p{
+  line-height: 1rem;
+  padding: 0px 10px;
+  font-size: large;
+  font-weight: 600;
+}
+
+/* COMMENTS */
+
+section .comment-list{
+  padding: 0px 10px;
+  border-radius: 5px;
+  background-color: rgb(240, 239, 239);
+}
+
+/* POST COMMENT */
+
+h3 {
+  margin: 15px auto;
+  text-align: center;
+  padding: 10px;
+}
+
+form p{
+  font-size: large;
+  font-weight: 600;
+  color: rgba(132,15,218,255);
+}
+
+form textarea{
+  height: 100px;
+  display: block;
+  width: 100%;
+  font-size: large;
+}
+
+form input{
+  margin: 5px 0px;
+  padding: 5px;
+  font-size: medium;
+  font-weight: 500;
+  border: none;
+  border-radius: 5px;
+  color:white;
+  background-color: rgba(132,15,218,255);
+  cursor: pointer;
+}
+
+form input:hover{
+  background-color: rgba(168, 85, 230,255);
+}
+
+.success-post-count{
+  font-weight: 500;
+  color: blue;
+}
+
+/* INDIVIDUAL COMMENTS */
+
+.comment-card{
+  margin: 15px 0px;
+  padding: 5px;
+  background-color: white;
+  border-radius: 5px;
+}
+
+
+.comment-card .author{
+  color: rgba(132,15,218,255);
+  margin: 0px;
+}
+.comment-card .body{
+  font-size: medium;
+  margin: 0px;
+}
+.comment-card .date{
+  margin: 0px;
+  font-size: small;
+}
+.comment-card .votes{
+  margin: 0px;
+  border-top: solid 3px rgb(240, 239, 239);
+}
+
+.delete-comment{
+  padding: 5px;
+  font-size: medium;
+  font-weight: 500;
+  border: none;
+  border-radius: 5px;
+  color:white;
+  background-color: blue;
+  cursor: pointer;
+}
+
+.delete-comment:hover{
+  background-color: rgb(69, 91, 255);
+}
+
+/* ARTICLES =================================*/
+
+/* ARTICLE QUERIES */
+.article-queries{
+  display: flex;
+  justify-content: space-around;
+  padding: 10px;
+}
+
+label{
+  padding: 5px;
+  border-radius: 5px;
+  color: white;
+  font-weight: 600;
+  background-color: rgba(132,15,218,255);
+}
+
+label select{
+  border: none;
+  background-color: white;
+  border-radius: 5px;
+  margin: 5px;
+}
+
+.article-query-order{
+  color: white;
+  background-color: rgba(132,15,218,255);
+  border: none;
+  border-radius: 5px;
+  font-weight: 600;
+}
+
+/* ARTICLE CARDS */
+
+.article-card{
+  margin: 10px 0px;
+  padding: 5px;
+  border: solid 2px rgb(240, 239, 239);
+  border-radius: 5px;
+}
+
+.article-card h2{
+  margin: 0px;
+}
+
+.article-card p{
+  margin: 0px;
+  padding: 5px;
+}
+
+.article-card span{
+  font-weight: 600;
+  color:rgba(132,15,218,255);
+
+}
+
+.article-card button{
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+  background-color: rgb(240, 239, 239);
+  font-size: medium;
+  font-weight: 600;
+  color: rgba(132,15,218,255);
+  cursor: pointer;
+}
+
+.article-card button:hover{
+  background-color: rgba(132,15,218,255);
+  color:white;
+}
+
+/* COLOURS:
+PURPLE rgba(132,15,218,255)
+Light purple
+Pinky purple rgba(199,41,157,255)
+Dark purple
+LIGHT GREY rgb(240, 239, 239)
+DARKER GREY
+ */
+
+

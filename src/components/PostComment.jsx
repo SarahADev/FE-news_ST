@@ -36,21 +36,21 @@ const PostComment = ({ article_id, setArticleCommentList }) => {
   return (
     <section>
       {postSuccess ? (
-        <span className="success-post-count">
-          {" "}
+        <p className="success-post-count">
           Successfully posted {postedComment} comments
-        </span>
+        </p>
       ) : null}
-      <form onSubmit={handleSubmit}>
-        <span>{user}</span> <br />
+      <form onSubmit={handleSubmit} className="post-comment">
+        <p className="user">{user} (you)</p>
         <textarea
+          className="add-comment"
           name="comment"
           placeholder="Add a comment..."
           value={newComment}
           onChange={(e) => setNewComment(e.target.value)}
           required
         />
-        <input type="submit" />
+        <input type="submit" className="post-comment"/>
       </form>
     </section>
   );
