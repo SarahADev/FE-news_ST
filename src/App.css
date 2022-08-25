@@ -501,7 +501,17 @@ label select{
   align-self: center;
 }
 
+/* COMMENT & VOTE POST ERROR */
 
+span.comment-error{
+  color: blue;
+  font-weight: 600;
+}
+
+span.vote-error{
+  color: blue;
+  font-weight: 600;
+}
 /* COLOURS:
 PURPLE rgba(132,15,218,255)
 Light purple

@@ -32,7 +32,7 @@ const PostComment = ({ article_id, setArticleCommentList }) => {
       });
   };
 
-  if (err) return <span>{err}</span>;
+  if (err) return <span className="comment-error">{err}</span>;
   return (
     <section>
       {postSuccess ? (

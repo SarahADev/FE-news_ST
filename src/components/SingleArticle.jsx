@@ -21,7 +21,7 @@ const SingleArticle = () => {
         setSingleArticle(article);
       })
       .catch(() => {
-        setErr("Something went wrong...");
+        setErr("Oops! Something went wrong...");
       });
     fetchArticleComments(article_id)
       .then(({ comments }) => {
