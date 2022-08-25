@@ -15,23 +15,21 @@ const PostComment = ({ article_id, setArticleCommentList }) => {
     setErr(null);
     setPostSuccess(null);
     e.preventDefault();
-    if (newComment !== "") {
-      postArticleComment(article_id, user, newComment)
-        .then(({ addedComment }) => {
-          setArticleCommentList((currArticleCommentList) => {
-            return [addedComment, ...currArticleCommentList];
-          });
-          setPostedComment((currPostedComment) => {
-            return currPostedComment + 1;
-          });
-          setPostSuccess(addedComment.body);
-        })
-        .catch(() => {
-          setErr(
-            "Something went wrong... Please refresh the page and try again."
-          );
+    postArticleComment(article_id, user, newComment)
+      .then(({ addedComment }) => {
+        setArticleCommentList((currArticleCommentList) => {
+          return [addedComment, ...currArticleCommentList];
         });
-    }
+        setPostedComment((currPostedComment) => {
+          return currPostedComment + 1;
+        });
+        setPostSuccess(addedComment.body);
+      })
+      .catch(() => {
+        setErr(
+          "Something went wrong... Please refresh the page and try again."
+        );
+      });
   };
 
   if (err) return <span>{err}</span>;
@@ -50,6 +48,7 @@ const PostComment = ({ article_id, setArticleCommentList }) => {
           placeholder="Add a comment..."
           value={newComment}
           onChange={(e) => setNewComment(e.target.value)}
+          required
         />
         <input type="submit" />
       </form>
