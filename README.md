@@ -7,8 +7,7 @@ Browse through articles, sort and filter the list, view, vote and comment on any
 News app is split into 2 separate deployables, a web client and a backend server. 
 Check out the backend here: https://github.com/SarahADev/News-API
 
-![alt tag](./Images/readme_img.png)
-<img src="./Images/readme_img.png" alt="Image of news web client" width="200"/>
+![alt tag](./Images/example_img.png)
 
 ## Run locally
 
