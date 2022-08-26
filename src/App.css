@@ -222,7 +222,7 @@ form button:hover {
   display: flex;
   justify-content: flex-end;
   padding: 10px;
-  background-color: rgba(132, 15, 218, 255);
+  background-color: rgba(132, 15, 218, 1);
   border-radius: 0px 0px 5px 5px;
 }
 
@@ -536,6 +536,8 @@ article .author {
   padding: 24px;
   position: relative;
   width: 98%;
+  border-radius: 10px;
+  border: solid 1px rgb(240, 239, 239);
 }
 /* .letter:before,
 .letter:after {

@@ -32,13 +32,6 @@ const ArticleCard = ({
         <span>Votes:</span> {votes} <span>Comments:</span> {comment_count}
       </p>
       <p className="article-date">{formatDate}</p>
-      <button
-        onClick={() => {
-          handleView(article_id);
-        }}
-      >
-        View Article
-      </button>
     </section>
   );
 };
