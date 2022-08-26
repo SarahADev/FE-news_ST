@@ -1,8 +1,8 @@
 import axios from "axios";
 
-export const fetchArticles = (topic, sort, order) => {
+export const fetchArticles = (topic, sort, order, page) => {
   if (topic === "all") {
-    return axios.get(`https://news-api-08-22.herokuapp.com/api/articles?sort_by=${sort}&&order=${order}`).then(
+    return axios.get(`https://news-api-08-22.herokuapp.com/api/articles?sort_by=${sort}&&order=${order}&&page=${page}`).then(
       (res) => {
         return res.data
       }

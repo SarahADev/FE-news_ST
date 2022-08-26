@@ -2,6 +2,7 @@ import { fetchArticles, fetchTopics } from "../api";
 import ArticleCard from "./ArticleCard";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import Pagination from "./Pagination";
 
 const Articles = () => {
 
@@ -15,6 +16,7 @@ const Articles = () => {
   const [selectSortBy, setSelectSortBy] = useState("created_at");
   const [selectOrder, setSelectOrder] = useState("DESC");
   const [err, setErr] = useState(null);
+  const [page, setPage] = useState(1)
 
   const handleSortSelect = (e) => {
     setSelectSortBy(e.target.value);
@@ -45,15 +47,16 @@ const Articles = () => {
 
   useEffect(() => {
     setLoading(true);
-    fetchArticles(selectTopic, selectSortBy, selectOrder)
+    fetchArticles(selectTopic, selectSortBy, selectOrder, page)
       .then(({ articles }) => {
         setLoading(false);
         setArticles(articles);
+        window.scrollTo(0, 0)
       })
       .catch(() => {
         setErr("Oops! Something went wrong...");
       });
-  }, [selectTopic, selectSortBy, selectOrder]);
+  }, [selectTopic, selectSortBy, selectOrder, page]);
 
   if (err)
     return (
@@ -146,6 +149,7 @@ const Articles = () => {
           );
         }
       )}
+      <Pagination page={page} setPage={setPage}/>
     </section>
   );
 };
