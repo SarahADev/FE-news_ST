@@ -2,9 +2,28 @@
   box-sizing: border-box;
 }
 
-body {
+.App{
   min-width: 320px;
   margin: 10px 30px;
+}
+
+body {
+	background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+	height: 100%;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
 }
 
 /* HEADER =================================*/
@@ -20,7 +39,6 @@ nav {
   max-width: 768px;
   display: flex;
   flex-direction: row;
-  border-bottom: solid 3px rgba(132, 15, 218, 255);
 }
 
 a {
@@ -271,21 +289,41 @@ select.dropdown-topic:hover {
 .article-card {
   margin: 10px 0px;
   padding: 5px;
-  border: solid 2px rgb(240, 239, 239);
+  border: solid 2px white;
   border-radius: 5px;
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
 .alternate{
+  border: solid 2px rgb(240, 239, 239);
   background-color: rgb(240, 239, 239);
 }
 
 .article-card h2 {
   margin: 0px;
+  cursor: pointer;
+}
+
+.article-card h2:hover {
+  text-decoration: underline;
 }
 
 .article-card p {
   margin: 0px;
   padding: 5px;
+}
+
+.article-topic{
+  border-radius: 5px;
+  color: white;
+  font-weight: 700;
+  display: inline-block;
+  background-color: rgba(132, 15, 218, 255);
+}
+
+.article-author{
+  font-weight: 600;
 }
 
 .article-card span {
@@ -437,8 +475,6 @@ span.vote-error {
   flex-direction: row;
 }
 
-/* media query for flex direction display */
-
 .trending-article {
   border-radius: 5px;
   border: 3px solid rgb(240, 239, 239);
@@ -483,15 +519,6 @@ article .author {
   padding: 0px;
 }
 
-/* COLOURS:
-PURPLE rgba(132,15,218,255)
-Light purple rgba(168, 85, 230, 255);
-Pinky purple rgba(199,41,157,255)
-Dark purple
-LIGHT GREY rgb(240, 239, 239)
-DARKER GREY
- */
-
 /* PAPER BACKGROUND ====================== */
 
 /* body {
@@ -501,7 +528,7 @@ DARKER GREY
 } */
 
 .letter {
-  background: #fff;
+  background: rgba(255, 255, 255, 0.6);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   margin: 26px auto 0;
   max-width: 768px;
@@ -510,7 +537,7 @@ DARKER GREY
   position: relative;
   width: 98%;
 }
-.letter:before,
+/* .letter:before,
 .letter:after {
   content: "";
   height: 98%;
@@ -531,4 +558,58 @@ DARKER GREY
   right: -3px;
   top: 1px;
   transform: rotate(1.4deg);
+} */
+
+/* PAGINATION =================================== */
+
+.pagination{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
 }
+
+.pagination p{
+  font-size: 1.5rem;
+  margin: 5px;
+}
+
+.pagination button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  border-radius: 50%;
+  padding: 5px;
+  margin: 5px;
+}
+
+.pagination button:disabled{
+  visibility: hidden;
+}
+
+.pagination button:hover:enabled{
+  color: white;
+  background-color: rgba(132,15,218,255);
+}
+
+.chevron{
+  margin: 2px;
+  width: 25px;
+}
+
+/* HEADING BAR ============================== */
+.header-bar{
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.6);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+/* COLOURS:
+PURPLE rgba(132,15,218,255)
+Light purple rgba(168, 85, 230, 255);
+Pinky purple rgba(199,41,157,255)
+Dark purple
+LIGHT GREY rgb(240, 239, 239)
+DARKER GREY
+ */

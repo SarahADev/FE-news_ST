@@ -8,20 +8,26 @@ const ArticleCard = ({
   votes,
   comment_count,
   date,
-  even
+  even,
 }) => {
   const formatDate = date.slice(0, -14);
   let navigate = useNavigate();
-  
+
   const handleView = (article_id) => {
     navigate(`/article/${article_id}`);
   };
   return (
-    <section className={even ? 'article-card' : 'article-card alternate'}>
-      <h2 className="article-title">{title}</h2>
-      <p className="article-author-topic">
-        <span>BY:</span> {author}  <span>ON:</span> {topic}
-      </p>
+    <section className={even ? "article-card" : "article-card alternate"}>
+      <h2
+        className="article-title"
+        onClick={() => {
+          handleView(article_id);
+        }}
+      >
+        {title}
+      </h2>
+      <p className="article-topic">{topic}</p>
+      <p className="article-author">{author}</p>
       <p className="article-votes-comments">
         <span>Votes:</span> {votes} <span>Comments:</span> {comment_count}
       </p>

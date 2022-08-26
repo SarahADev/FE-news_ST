@@ -17,8 +17,10 @@ function App() {
     <BrowserRouter>
       <UserContext.Provider value={{ user, setUser }}>
         <div className="App">
-          <Header />
-          <Nav />
+          <section className="header-bar">
+            <Header />
+            <Nav />
+          </section>
           <div className="letter">
             <Routes>
               <Route path="/" element={<Home />} />
