@@ -85,3 +85,10 @@ export const fetchTrendingArticles = () => {
     return res.data
   })
 }
+
+export const fetchUsers = () => {
+  return axios.get('https://news-api-08-22.herokuapp.com/api/users')
+  .then((res) => {
+    return res.data
+  })
+}

@@ -641,6 +641,42 @@ article .votes{
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
+/* USERS LIST =============================== */
+
+.user-list{
+  margin: 10px 0px;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.6);
+  border: solid 1px white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.user-avatar{
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  margin: 10px;
+  border-radius: 50%;
+  border: solid white 1px;
+  height: 100px;
+  width: 100px;
+}
+
+.user-name{
+  font-weight: 600;
+}
+
+.user-username{
+  font-weight: 600;
+  font-size: small;
+}
+
+
+
+
+
 /* COLOURS:
 PURPLE rgba(132,15,218,255)
 Light purple rgba(168, 85, 230, 255);
