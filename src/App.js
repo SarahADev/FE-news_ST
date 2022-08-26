@@ -17,15 +17,22 @@ function App() {
     <BrowserRouter>
       <UserContext.Provider value={{ user, setUser }}>
         <div className="App">
-          <Header />
-          <Nav />
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/users" element={<UserList />} />
-            <Route path="/articles/topic/:topic_slug" element={<Articles />} />
-            <Route path="/article/:article_id" element={<SingleArticle />} />
-            <Route path="/*" element={<BadRoute />}/>
-          </Routes>
+          <section className="header-bar">
+            <Header />
+            <Nav />
+          </section>
+          <div className="letter">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/users" element={<UserList />} />
+              <Route
+                path="/articles/topic/:topic_slug"
+                element={<Articles />}
+              />
+              <Route path="/article/:article_id" element={<SingleArticle />} />
+              <Route path="/*" element={<BadRoute />} />
+            </Routes>
+          </div>
         </div>
       </UserContext.Provider>
     </BrowserRouter>
