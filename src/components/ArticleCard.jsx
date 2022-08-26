@@ -16,8 +16,12 @@ const ArticleCard = ({
   const handleView = (article_id) => {
     navigate(`/article/${article_id}`);
   };
+
+  // const handleTopic = (topic) => {
+  //   navigate(`/articles/topic/${topic}`)
+  // }
   return (
-    <section className={even ? "article-card" : "article-card alternate"}>
+    <section className={even ? "article-card" : "article-card alternate"} onClick={()=>{handleView(article_id)}}>
       <h2
         className="article-title"
         onClick={() => {
