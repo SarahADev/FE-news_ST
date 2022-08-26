@@ -70,3 +70,18 @@ export const deleteArticleComment = (comment_id) => {
     return res.status
   })
 }
+
+export const fetchLatestArticle = () => {
+  return axios
+  .get(`https://news-api-08-22.herokuapp.com/api/articles?sort_by=created_at&&order=DESC`)
+  .then((res) => {
+    return res.data
+  })
+}
+
+export const fetchTrendingArticles = () => {
+  return axios.get(`https://news-api-08-22.herokuapp.com/api/articles?sort_by=votes&&order=DESC`)
+  .then((res) => {
+    return res.data
+  })
+}

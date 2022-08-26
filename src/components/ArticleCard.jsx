@@ -8,6 +8,7 @@ const ArticleCard = ({
   votes,
   comment_count,
   date,
+  even
 }) => {
   const formatDate = date.slice(0, -14);
   let navigate = useNavigate();
@@ -16,7 +17,7 @@ const ArticleCard = ({
     navigate(`/article/${article_id}`);
   };
   return (
-    <section className="article-card">
+    <section className={even ? 'article-card' : 'article-card alternate'}>
       <h2 className="article-title">{title}</h2>
       <p className="article-author-topic">
         <span>BY:</span> {author}  <span>ON:</span> {topic}

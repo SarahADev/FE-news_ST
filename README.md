@@ -2,7 +2,7 @@
 The front-end portion of a News app, created with React. 
 Browse through articles, sort and filter the list, view, vote and comment on any article!
 
-**LIVE SITE:** [LINK TO SITE]
+**LIVE SITE:** https://sarahadev-news.netlify.app
 
 News app is split into 2 separate deployables, a web client and a backend server. 
 Check out the backend here: https://github.com/SarahADev/News-API

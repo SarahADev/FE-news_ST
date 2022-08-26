@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
 const Articles = () => {
+
   const { topic_slug } = useParams();
 
   let navigate = useNavigate();
@@ -54,52 +55,62 @@ const Articles = () => {
       });
   }, [selectTopic, selectSortBy, selectOrder]);
 
-  if (err) return <section className="article-error"> <p>{err}</p> <img src="https://cdn-icons-png.flaticon.com/512/3036/3036041.png" alt="Error message"/></section>;
+  if (err)
+    return (
+      <section className="article-error">
+        {" "}
+        <p>{err}</p>{" "}
+        <img
+          src="https://cdn-icons-png.flaticon.com/512/3036/3036041.png"
+          alt="Error message"
+        />
+      </section>
+    );
   return (
     <section className="article-body">
       <section className="article-queries">
-        <label className="article-query-topic" key="topicLabel">
-          Select a Topic
-          <select
-            className="dropdown"
-            onChange={handleTopicSelect}
-            value={selectTopic}
-          >
-            <option value="all" key="All">
-              All
-            </option>
-            {topics.map(({ slug }, index) => {
-              return (
-                <option value={slug} key={index}>
-                  {slug}
-                </option>
-              );
-            })}
-          </select>
-        </label>
-        <label className="aricle-query-sortby">
-          Sort by:
-          <select className="dropdown" onChange={handleSortSelect}>
-            <option value="created_at" key="date">
-              Date
-            </option>
-            <option value="title" key="title">
-              Title
-            </option>
-            <option value="author" key="author">
-              Author
-            </option>
-            <option value="topic" key="topic">
-              Topic
-            </option>
-            <option value="votes" key="votes">
-              Votes
-            </option>
-            <option value="comment_count" key="comment_count">
-              Comments
-            </option>
-          </select>
-        </label>
+        <select
+          className="dropdown-topic"
+          onChange={handleTopicSelect}
+          value={selectTopic}
+        >
+          <option key="header" disabled>
+            Select Topic
+          </option>
+          <option value="all" key="All">
+            All Topics
+          </option>
+          {topics.map(({ slug }, index) => {
+            return (
+              <option value={slug} key={index}>
+                {slug}
+              </option>
+            );
+          })}
+        </select>
+        <select className="dropdown-sortby" onChange={handleSortSelect} defaultValue="created_at">
+          <option key="header" value="created_at" disabled>
+            Sort
+          </option>
+          <option value="created_at" key="date">
+            Date
+          </option>
+          <option value="title" key="title">
+            Title
+          </option>
+          <option value="author" key="author">
+            Author
+          </option>
+          <option value="topic" key="topic">
+            Topic
+          </option>
+          <option value="votes" key="votes">
+            Votes
+          </option>
+          <option value="comment_count" key="comment_count">
+            Comments
+          </option>
+        </select>
         <button className="article-query-order" onClick={handleOrderSelect}>
           {selectOrder}
         </button>
@@ -119,9 +130,10 @@ const Articles = () => {
           votes,
           comment_count,
           created_at,
-        }) => {
+        }, index) => {
           return (
             <ArticleCard
+              even={index%2===0}
               key={article_id}
               article_id={article_id}
               title={title}
