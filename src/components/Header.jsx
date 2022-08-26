@@ -1,7 +1,21 @@
+import { useNavigate } from "react-router-dom";
+
 const Header = () => {
-    return (
-        <h1 className="header">NEWS</h1>
-    );
+  let navigate = useNavigate();
+  const handleClick = () => {
+    navigate(`/`);
   };
-  
-  export default Header
+
+  return (
+    <h1
+      className="header"
+      onClick={() => {
+        handleClick();
+      }}
+    >
+      NEWS
+    </h1>
+  );
+};
+
+export default Header;
