@@ -32,7 +32,7 @@ const SingleArticle = () => {
       });
   }, [article_id]);
 
-  if (err) return <section className="article-error"> <p>{err}</p> <img src="https://cdn-icons-png.flaticon.com/512/3036/3036041.png" alt="Error message"/> </section>;
+  if (err) return <section className="article-error"> <p>{err}</p> </section>;
 
   if (!singleArticle) {
     return (

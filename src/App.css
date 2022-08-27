@@ -2,9 +2,23 @@
   box-sizing: border-box;
 }
 
+:root{
+  --main-purple: rgba(132,15,218,1);
+  --light-purple: rgba(168, 85, 230, 1);
+  --light-grey: rgba(240, 239, 239,1);
+  --shadow: rgba(0,0,0,0.3);
+
+}
+
 .App{
   min-width: 320px;
   margin: 10px 30px;
+}
+
+@media screen and (max-width: 450px) {
+  .App{
+    margin: 10px 10px;
+  }
 }
 
 body {
@@ -34,7 +48,7 @@ h1 {
   font-family:Verdana, Geneva, Tahoma, sans-serif;
   font-size: 2rem;
   text-align: center;
-  color: rgba(132,15,218,255);
+  color: var(--main-purple);
 }
 
 /* NAVIGATION BAR =================================*/
@@ -51,7 +65,7 @@ a {
   text-decoration: none;
   padding: 20px;
   text-align: center;
-  color: rgba(132, 15, 218, 255);
+  color: var(--main-purple);
   width: 33.33%;
   font-size: large;
   cursor: pointer;
@@ -73,8 +87,8 @@ a:hover {
   display: inline-block;
   padding: 10px;
   margin: 20px 0px 10px 0px;
-  background-color: rgba(132, 15, 218, 255);
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  background-color: var(--main-purple);
+  box-shadow: 0 0 10px var(--shadow);
 }
 
 h2 {
@@ -102,7 +116,7 @@ section {
 }
 
 .article-votes {
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 10px var(--shadow);
   border-radius: 5px;
   background-color: rgb(240, 239, 239);
   display: flex;
@@ -114,7 +128,7 @@ section {
   border: none;
   border-radius: 5px;
   color: white;
-  background-color: rgba(132, 15, 218, 255);
+  background-color: var(--light-purple);
   font-size: 2rem;
   line-height: 1.2rem;
   padding: 15px;
@@ -122,7 +136,7 @@ section {
 }
 
 .article-votes button:hover {
-  background-color: rgba(168, 85, 230, 255);
+  background-color: var(--light-purple);
 }
 
 .article-votes p {
@@ -138,7 +152,7 @@ section .comment-list {
   padding: 0px 10px;
   border-radius: 5px;
   background-color: rgb(240, 239, 239);
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 10px var(--shadow);
 }
 
 /* POST COMMENT */
@@ -175,7 +189,7 @@ form button {
 }
 
 form button:hover {
-  background-color: rgba(168, 85, 230, 255);
+  background-color: var(--light-purple);
 }
 
 .success-post-count {
@@ -190,7 +204,7 @@ form button:hover {
   padding: 5px;
   background-color: white;
   border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 10px var(--shadow);
 }
 
 .comment-card .author {
@@ -220,7 +234,7 @@ form button:hover {
   color: white;
   background-color: blue;
   cursor: pointer;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 10px var(--shadow);
 }
 
 .delete-comment:hover {
@@ -234,9 +248,15 @@ form button:hover {
   display: flex;
   justify-content: flex-end;
   padding: 10px;
-  background-image: linear-gradient(to right, rgba(168, 85, 230, 255), rgba(132,15,218,255));
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  background-image: linear-gradient(to right, var(--light-purple), rgba(132,15,218,255));
+  box-shadow: 0 0 10px var(--shadow);
   border-radius: 5px;
+}
+
+@media screen and (max-width: 450px) {
+  .article-queries{
+    flex-direction: column;
+  }
 }
 
 /* label {
@@ -277,11 +297,11 @@ select.dropdown-sortby {
 }
 
 select.dropdown-sortby:hover {
-  background-color: rgba(168, 85, 230, 255);
+  background-color: var(--light-purple);
 }
 
 select.dropdown-topic:hover {
-  background-color: rgba(168, 85, 230, 255);
+  background-color: var(--light-purple);
 }
 
 .article-query-order {
@@ -294,7 +314,7 @@ select.dropdown-topic:hover {
 }
 
 .article-query-order:hover {
-  background-color: rgba(168, 85, 230, 255);
+  background-color: var(--light-purple);
 }
 
 /* ARTICLE CARDS */
@@ -305,7 +325,7 @@ select.dropdown-topic:hover {
   border: solid 2px white;
   border-radius: 5px;
   background-color: white;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 10px var(--shadow);
 }
 
 .article-card:hover{
@@ -385,11 +405,6 @@ select.dropdown-topic:hover {
   text-align: center;
 }
 
-/* .bad-route img{
-  max-height: 420px;
-  max-width: 597px;
-  margin: auto;
-} */
 
 /* LOADER ================= */
 .loading {
@@ -432,10 +447,6 @@ select.dropdown-topic:hover {
   font-weight: 900;
 }
 
-.article-error img {
-  max-width: 400px;
-  align-self: center;
-}
 
 /* COMMENT & VOTE POST ERROR */
 
@@ -454,9 +465,9 @@ span.vote-error {
 /* LATEST NEWS */
 .latest-news article {
   border-radius: 5px;
-  background-image: linear-gradient(to bottom right, rgba(168, 85, 230, 255), rgba(132,15,218,255));
+  background-image: linear-gradient(to bottom right, var(--light-purple), rgba(132,15,218,255));
   /* background-color: rgba(132, 15, 218, 1); */
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 10px var(--shadow);
   border: 1px solid rgba(168, 85, 230, 0.6);
 }
 
@@ -502,7 +513,7 @@ span.vote-error {
 
 .trending-article {
   background-color: rgba(255, 255, 255, 0.6);
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 10px var(--shadow);
   border-radius: 5px;
   border: 1px solid rgb(240, 239, 239);
   margin: 0px 10px;
@@ -527,7 +538,7 @@ article .title {
 }
 
 article .title:hover {
-  color: rgba(168, 85, 230, 255);
+  color: var(--light-purple);
 }
 
 article .topic {
@@ -538,7 +549,7 @@ article .topic {
   padding: 10px;
   margin: 10px 0px;
   background-color: rgba(132, 15, 218, 1);
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 10px var(--shadow);
 }
 
 article .author {
@@ -560,7 +571,7 @@ article .votes{
 
 .letter {
   background: rgba(255, 255, 255, 0.6);
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 10px var(--shadow);
   margin: 26px auto 0;
   max-width: 768px;
   min-height: 300px;
@@ -638,7 +649,7 @@ article .votes{
 .header-bar{
   border-radius: 10px;
   background-color: rgba(255, 255, 255, 0.6);
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 10px var(--shadow);
 }
 
 /* USERS LIST =============================== */
@@ -648,15 +659,14 @@ article .votes{
   border-radius: 10px;
   background-color: rgba(255, 255, 255, 0.6);
   border: solid 1px white;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 10px var(--shadow);
   display: flex;
   flex-direction: row;
   align-items: center;
-  flex-wrap: wrap;
 }
 
 .user-avatar{
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 10px var(--shadow);
   margin: 10px;
   border-radius: 50%;
   border: solid white 1px;
@@ -666,22 +676,23 @@ article .votes{
 
 .user-name{
   font-weight: 600;
+  text-align: center;
 }
 
 .user-username{
+  text-align: center;
   font-weight: 600;
   font-size: small;
 }
 
 
+@media screen and (max-width: 450px) {
+  .user-list{
+    flex-direction: column;
+  }
+}
 
 
 
-/* COLOURS:
-PURPLE rgba(132,15,218,255)
-Light purple rgba(168, 85, 230, 255);
-Pinky purple rgba(199,41,157,255)
-Dark purple
-LIGHT GREY rgb(240, 239, 239)
-DARKER GREY
- */
+
+

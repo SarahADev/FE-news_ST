@@ -30,9 +30,9 @@ View any single article, vote on, comment on or delete posts made by you.
 ## How It's Made:
 
 
-**Tech used:** React, CSS
+**Tech used:** React, Javascript, CSS
 
-An initial wireframe and component tree was planned. This was so I could keep track of both integration of api functionality into the client, and the structure of this repo.
+An initial wireframe and component tree was planned to keep track of both integration of api functionality into the client, and the structure of this repo.
 A 'work in progress' component tree was also continually updated so I could see how current work was structured and to compare with the plan.
 
 ![alt tag](./Images/wireframe.png)
@@ -47,9 +47,10 @@ individually address (share) certain parts of the site. Routes also allow browse
 
 ## Optimisations
 
+Pagination was included for the articles list to reduce the amount of data loading at one time, and to improve navigation for the user.
+
 Optimistic rendering and conditional rendering is used in this project for users to receive (render) immediate UI feedback when making calls to the api. For instance, when making a GET request, a loading message will conditionally render until those articles are fetched. When a user votes on an article, the vote count will increment before an api call is made, but decrement if that call fails.
 
-This project was designed mobile-first to account for a responsive display.
 With more time, I would like to add a light and dark mode to the app.
 
 ## Lessons Learned:
