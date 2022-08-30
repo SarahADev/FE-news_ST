@@ -4,9 +4,9 @@ import TrendingArticles from "./Trending";
 const Home = () => {
   return (
     <section className="homepage">
-      <h2>Latest news...</h2>
+      <h2>Latest news</h2>
       <LatestNews />
-      <h2>Trending...</h2>
+      <h2>Trending</h2>
       <TrendingArticles />
     </section>
   );
