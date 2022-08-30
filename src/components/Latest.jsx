@@ -16,7 +16,7 @@ const LatestNews = () => {
       .then(({ articles }) => {
         setLatest(articles[0]);
       })
-      .catch((err) => {
+      .catch(() => {
         setErr("Oops! Something went wrong...");
       });
   }, []);
